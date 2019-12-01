@@ -7,19 +7,19 @@ class Footbar extends React.Component{
     constructor(){
         super(); 
         this.state={
-            activePath:"./selected"
+            activePath:"mine"
         }
     }
     render(){
-        let {activePath}=this.props;
-        // console.log(FootBarRoutes);
+        let {path}=this.props;
+        console.log(this.props)
         return (
             <Fragment>
                 <Footer>
                 <ul>
                     {
                         FootBarRoutes.map((item,index)=>(
-                            <li key={item.path} onClick={this.handleTo.bind(this,item.path,index)} className={activePath===item.path?'active':""}>
+                            <li key={item.path} onClick={this.handleTo.bind(this,item.path)} className={path==item.path?'active':""}>
                                 <i className={item.icon}> </i>
                                 <span>{item.text}</span>
                             </li>

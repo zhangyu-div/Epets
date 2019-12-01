@@ -1,30 +1,23 @@
 import React,{Fragment}from "react";
 import {Contenter,Leftlist,Rightlist} from  "./style";
+
+import {connect}  from "react-redux";
+import {mapStateToProps,mapDispatchToProps} from "./mapStore"; 
+import {Link} from "react-router-dom";
+@connect(mapStateToProps,mapDispatchToProps)
 class Classifytabone extends React.Component{
     render(){
+        let {categorylist}=this.props;
         return(
             <Fragment>
                 <Contenter>
                     <Leftlist>
                         <ul>
-                            <li className="active">为您推荐</li>
-                            <li>为您推荐</li>
-                            <li>为您推荐</li>
-                            <li>为您推荐</li>
-                            <li>为您推荐</li>
-                            <li>为您推荐</li>
-                            <li>为您推荐</li>
-                            <li>为您推荐</li>
-                            <li>为您推荐</li>
-                            <li>为您推荐</li>
-                            <li>为您推荐</li>
-                            <li>为您推荐</li>
-                            <li>为您推荐</li>
-                            <li>为您推荐</li>
-                            <li>为您推荐</li>
-                            <li>为您推荐</li>
-                            <li>为您推荐</li>                           
-                            <li>为您推荐</li>
+                            {
+                                categorylist.map((item,index)=>(
+                                <li className="active" key={index}><Link > {item.name}</Link> </li>
+                                ))
+                            }
                         </ul>
                     </Leftlist>
                     <Rightlist>
@@ -120,6 +113,13 @@ class Classifytabone extends React.Component{
                 </Contenter>
             </Fragment>
         )
+    }
+    componentDidMount(){
+        if(!localStorage.getItem("category")){
+            this.props.handlecategoryAsyncData();
+        }
+
+        this.props.handlerightAsyncData();
     }
 }
 export default Classifytabone;

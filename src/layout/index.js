@@ -6,7 +6,7 @@ export default class Layout extends Component {
             <Fragment>
                 {this.props.children}
                 {/* 内容区 */}
-                <Footbar/>
+                <Footbar path={this.props.path}/>
             </Fragment>
         )
     }

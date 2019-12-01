@@ -1,9 +1,11 @@
-import React, { Fragment } from "react";
+import React from "react";
 import {Container, Box, Search, Todo, Tuijan ,Nothing,Vidio} from "./styled";
+import Headbar from "common/headbar";
 class Meng extends React.Component {
     render() {
         return (
             <Container>
+                <Headbar></Headbar>
                 <Box>
                     <div className="box">
                         <div className="fixed">

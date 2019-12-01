@@ -3,10 +3,10 @@ import  Classifytabone from "components/classifytab/tabone";
 import  Classifytabtwo  from "components/classifytab/tabtwo";
 export const FootBarRoutes=[
     {
-        path:"/selected",
+        path:"/selected/",
         component:Selected,
         meta:{
-            flag:true
+            flag:true,
         },
         text:"精选",
         icon:"iconfont icon--xiaogou",
@@ -17,6 +17,7 @@ export const FootBarRoutes=[
                 meta:{
                     flag:true
                 },
+
             },
             {
                 path:"/selected/group",
@@ -31,7 +32,8 @@ export const FootBarRoutes=[
         path:"/classify",
         component:Classify,
         meta:{
-            flag:true
+            flag:true,
+   
         },
         text:"分类",
         icon:"iconfont icon-fenlei",   
@@ -56,7 +58,8 @@ export const FootBarRoutes=[
         path:"/meng",
         component:Meng,
         meta:{
-            flag:true
+            flag:true,
+
         },
         text:"小萌书",
         icon:"iconfont icon-shu",   
@@ -65,7 +68,7 @@ export const FootBarRoutes=[
         path:"/cart",
         component:Cart,
         meta:{
-            flag:true
+
         },
         requiredAuth: true,
         text:"购物车",
@@ -75,7 +78,8 @@ export const FootBarRoutes=[
         path:"/mine",
         component:Mine,
         meta:{
-            flag:true
+            flag:true,
+ 
         },
         text:"我的E宠",
         icon:"iconfont icon-wode",   

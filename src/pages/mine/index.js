@@ -1,11 +1,13 @@
-import React,{Fragment}from "react";
-import {Container} from "./styled"; 
-class Mine  extends React.Component{
+import React from "react";
+import Headbar from "common/headbar";
+import {PageContainer} from "common/styled"
+class Cart extends React.Component{
     render(){
-        
         return(
-            <div>Mine</div>
+            <PageContainer>
+                <Headbar></Headbar>
+            </PageContainer>
         )
     }
 }
-export default Mine;
+export default Cart;

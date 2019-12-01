@@ -23,7 +23,7 @@ class Goodlist extends React.Component{
                 <Lists>
                     <ul>
                         <li>
-                            <a className="left"><img src="https://img2.epetbar.com/2018-11/26/13/bdcdfa5f9a0d1703db11c3d3cb2177c7.jpg@!300w-b" alt=""/></a>
+                            <a href="" className="left"><img src="https://img2.epetbar.com/2018-11/26/13/bdcdfa5f9a0d1703db11c3d3cb2177c7.jpg@!300w-b" alt=""/></a>
                             <div className="right">
                                 <p className="name">卡尔karl 狗糖舔舔乐1枚装 21g</p>
                                 <p className="price"></p>

@@ -28,6 +28,9 @@ export const Leftlist=styled.div`
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    a{
+      display:block;
+    }
   }
   .active{
     background: #f3f4f5;

@@ -42,6 +42,19 @@ export const videoApi =()=>http.get({
     }
 })
 
+export const videodetailApi =(id)=>http.get({
+    url:"v3/content/Experience.html",
+    data:{
+        do:'VideoDetail',
+        id:id,
+        isWeb: 1,
+        system: 'wap',
+        version: 303,
+        distinct_id: '16eac309c55139-085f566e985e4f-67e1b3f-1327104-16eac309c5635c'
+    }
+})
+
+
 
 
 

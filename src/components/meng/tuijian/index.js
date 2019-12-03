@@ -5,7 +5,6 @@ import {mapStateToProps,mapDispatchToProps} from "./mapStore";
 @connect(mapStateToProps,mapDispatchToProps)
 class Tuijian extends React.Component {
     render() {
-        console.log(this.props)
         let {tuijianlists}=this.props;
         return (
             <Tuijan>

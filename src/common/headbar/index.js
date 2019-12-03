@@ -13,7 +13,7 @@ class Headbar extends React.Component{
     }
     render(){
         let {flag}=this.state;
-        console.log(this.props,1111);
+
         return (
             <Fragment>
                 <div>

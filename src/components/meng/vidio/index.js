@@ -2,6 +2,7 @@ import React from "react";
 import {Vidio} from "./styled";
 import {connect} from "react-redux";
 import {mapStateToProps,mapDispatchToProps} from "./mapStore";
+import {Link} from "react-router-dom";
 @connect(mapStateToProps,mapDispatchToProps)
 class Vidios extends React.Component {
     render() {
@@ -23,6 +24,7 @@ class Vidios extends React.Component {
                                 {
                                     item.data.videoList.map((items,indexs)=>(
                                         <li key={indexs}>
+                                            <Link to={'/videodetail/'+items.id}>
                                             <div>
                                                 <img src={items.cover.img_url} alt=""/>
                                                 <p>
@@ -31,6 +33,7 @@ class Vidios extends React.Component {
                                                 </p>
                                             </div>
                                             <h4>{items.title}</h4>
+                                            </Link>
                                         </li>
                                     ))
                                 }

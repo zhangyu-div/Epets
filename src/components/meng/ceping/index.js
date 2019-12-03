@@ -6,7 +6,7 @@ import {mapStateToProps,mapDispatchToProps} from "./mapStore";
 class Ceping extends React.Component {
     render() {
         let {cepinglists}=this.props;
-        console.log(cepinglists)
+
         return (
             cepinglists.map((item,index)=>(
                 <Cep key={index}>

@@ -12,7 +12,7 @@ class Footbar extends React.Component{
     }
     render(){
         let {path}=this.props;
-        console.log(this.props)
+
         return (
             <Fragment>
                 <Footer>

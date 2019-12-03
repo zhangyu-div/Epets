@@ -1,11 +1,17 @@
-import {TuijianType,cepingType,videoType} from "actions/meng/mengTypes";
+import {TuijianType,cepingType,videoType,videodetailType} from "actions/meng/mengTypes";
 
 import { handleActions} from "redux-actions";
 
 const defaultState = {
-    tuijianlists: [],
+    tuilinks: [],
     cepinglists:[],
-    videolists:[]
+    videolists:[],
+    tuijianlists:[],
+    videodetail:'',
+    series:'',
+    users:'',
+    lists:'',
+    links:''
 }
 
 
@@ -24,7 +30,17 @@ export default handleActions({
         let videoState=JSON.parse(JSON.stringify(state));
         videoState.videolists=action.payload.data.list;
         return videoState;
-    }
+    },
+    [videodetailType]:(state,action)=>{
+        let videodetailState=JSON.parse(JSON.stringify(state));
+        videodetailState.videodetail=action.payload.data.list;
+        videodetailState.users=action.payload.data.list.user;
+        videodetailState.series=action.payload.data.list.detial.series;
+        videodetailState.lists=action.payload.data.list.detial.series.list;
+        videodetailState.links=action.payload.data.list.detial.link;
+
+        return videodetailState;
+    },
 }, defaultState);
 
 

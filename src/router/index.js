@@ -94,7 +94,7 @@ export const NoFootBarRoutes=[
         meta:{}
     },
     {
-        path:"/videodetail",
+        path:"/videodetail/:id",
         component:Videodetail,
         meta:{}
     },

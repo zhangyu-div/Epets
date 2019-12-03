@@ -1,5 +1,5 @@
-import {TuijianType,cepingType,videoType} from "./mengTypes";
-import {tuijianApi,cepingApi,videoApi} from "api/meng";
+import {TuijianType,cepingType,videoType,videodetailType} from "./mengTypes";
+import {tuijianApi,cepingApi,videoApi,videodetailApi} from "api/meng";
 import {createAction} from "redux-actions";
 
 export const TuijianAsyncAction=()=>{
@@ -23,7 +23,17 @@ export const videoAsyncAction=()=>{
     let videoAction =createAction(videoType,(data)=>data);
     return async (dispatch)=>{
         let data=await videoApi();
-        console.log(data,99999)
+
         dispatch(videoAction(data));
+    }
+}
+
+
+export const videodetailAsyncAction=(id)=>{
+    let videodetailAction =createAction(videodetailType,(data)=>data);
+    return async (dispatch)=>{
+        let data=await videodetailApi(id);
+
+        dispatch(videodetailAction(data));
     }
 }

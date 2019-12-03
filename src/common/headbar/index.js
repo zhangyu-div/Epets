@@ -1,6 +1,9 @@
 import React,{Fragment}from "react"
 import {Header,HeaderOpen} from "./styled";
 import PropTypes from "prop-types";
+import {withRouter} from "react-router-dom";
+import { throws } from "assert";
+@withRouter
 class Headbar extends React.Component{
     constructor(){
         super(); 
@@ -10,12 +13,12 @@ class Headbar extends React.Component{
     }
     render(){
         let {flag}=this.state;
-        console.log(this.props)
+        console.log(this.props,1111);
         return (
             <Fragment>
                 <div>
                     <Header>
-                        <div className="iconfont icon-iconfontjiantou1"></div>
+                        <div className="iconfont icon-iconfontjiantou1" onClick={this.handleback.bind(this)}></div>
                         <div className="book">{this.props.name}</div>
                         <div className={this.props.icon} onClick={this.hanleopen.bind(this)}></div>
                     </Header>
@@ -29,12 +32,16 @@ class Headbar extends React.Component{
             </Fragment>
         )
     }
+    handleback(){
+        this.props.history.goBack();
+    }
     hanleopen(){
     this.setState({
         flag:!this.state.flag
     })
     }
 }
+
 Headbar.defaultProps={
     name:"小萌书",
     icon:'iconfont icon-changyongtubiao-xianxingdaochu-zhuanqu-',

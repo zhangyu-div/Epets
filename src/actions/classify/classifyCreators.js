@@ -15,20 +15,10 @@ export const categoryAsyncAction=()=>{
         localStorage.setItem("category",JSON.stringify(data.categorys))
     }
 }
-
-
-// pet_type=dog,version=358,system=wap,isWeb=1,distinct_id='16eac309c55139-085f566e985e4f-67e1b3f-1327104-16eac309c5635c',_=1575183221879
-
-
-export const handlerightAsyncAction=()=>{
+export const handlerightAsyncAction=(cateid)=>{
     let handlerightAction=createAction(handlerightAsyncType,(data)=>data);
-
-    // let categoryAction=(data)=>({
-    //     type:categoryAsyncType,
-    //     data
-    // })
     return async (dispatch)=>{
-        let data=await handlerightApi();
+        let data=await handlerightApi(cateid);
         dispatch(handlerightAction(data));
     }
 }

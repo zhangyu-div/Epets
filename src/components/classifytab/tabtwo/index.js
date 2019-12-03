@@ -1,174 +1,48 @@
-import React,{Fragment}from "react";
-import {Content} from  "./styled";
-class Classifytabtwo extends React.Component{
-    render(){
-        return(
+import React, { Fragment } from "react";
+import { Content } from "./styled";
+import {connect} from "react-redux";
+import {mapStateToProps,mapDispatchToProps} from "./mapStore";
+@connect(mapStateToProps,mapDispatchToProps)
+class Classifytabtwo extends React.Component {
+    render() {
+        let {brandlist} =this.props;
+
+        return (
             <Fragment>
                 <Content>
                     <div className="wrapper">
-
-                    <div className="pinpailist">
-
-                        <div className="title c999 ft12 center">
-                            <span className="center">—— 推荐品牌 ——</span>
-                        </div>
-                        <div className="list">
-                            <ul className="listinfo">
-                                <li>
-                                    <a href="">
-                                        <div className="imgs"><img src="https://img2.epetbar.com/brand/brandLogo/upload_file_1562639814.jpg?x-oss-process=style/waterfall&$1=200" alt=""/></div>
-                                        <p className="name">伯纳天纯PureNatural</p>
-                                        <p className="country c999 ft12">中国</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <div className="imgs"><img src="https://img2.epetbar.com/brand/brandLogo/upload_file_1562639814.jpg?x-oss-process=style/waterfall&$1=200" alt=""/></div>
-                                        <p className="name">伯纳天纯PureNatural</p>
-                                        <p className="country c999 ft12">中国</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <div className="imgs"><img src="https://img2.epetbar.com/brand/brandLogo/upload_file_1562639814.jpg?x-oss-process=style/waterfall&$1=200" alt=""/></div>
-                                        <p className="name">伯纳天纯PureNatural</p>
-                                        <p className="country c999 ft12">中国</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <div className="imgs"><img src="https://img2.epetbar.com/brand/brandLogo/upload_file_1562639814.jpg?x-oss-process=style/waterfall&$1=200" alt=""/></div>
-                                        <p className="name">伯纳天纯PureNatural</p>
-                                        <p className="country c999 ft12">中国</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-
-
-                    <div className="pinpailist">
-                        
-                        <div className="title c999 ft12 center">
-                            <span className="center">—— 推荐品牌 ——</span>
-                        </div>
-                        <div className="list">
-                            <ul className="listinfo">
-                                <li>
-                                    <a href="">
-                                        <div className="imgs"><img src="https://img2.epetbar.com/brand/brandLogo/upload_file_1562639814.jpg?x-oss-process=style/waterfall&$1=200" alt=""/></div>
-                                        <p className="name">伯纳天纯PureNatural</p>
-                                        <p className="country c999 ft12">中国</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <div className="imgs"><img src="https://img2.epetbar.com/brand/brandLogo/upload_file_1562639814.jpg?x-oss-process=style/waterfall&$1=200" alt=""/></div>
-                                        <p className="name">伯纳天纯PureNatural</p>
-                                        <p className="country c999 ft12">中国</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <div className="imgs"><img src="https://img2.epetbar.com/brand/brandLogo/upload_file_1562639814.jpg?x-oss-process=style/waterfall&$1=200" alt=""/></div>
-                                        <p className="name">伯纳天纯PureNatural</p>
-                                        <p className="country c999 ft12">中国</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <div className="imgs"><img src="https://img2.epetbar.com/brand/brandLogo/upload_file_1562639814.jpg?x-oss-process=style/waterfall&$1=200" alt=""/></div>
-                                        <p className="name">伯纳天纯PureNatural</p>
-                                        <p className="country c999 ft12">中国</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-
-                    <div className="pinpailist">
-                        
-                        <div className="title c999 ft12 center">
-                            <span className="center">—— 推荐品牌 ——</span>
-                        </div>
-                        <div className="list">
-                            <ul className="listinfo">
-                                <li>
-                                    <a href="">
-                                        <div className="imgs"><img src="https://img2.epetbar.com/brand/brandLogo/upload_file_1562639814.jpg?x-oss-process=style/waterfall&$1=200" alt=""/></div>
-                                        <p className="name">伯纳天纯PureNatural</p>
-                                        <p className="country c999 ft12">中国</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <div className="imgs"><img src="https://img2.epetbar.com/brand/brandLogo/upload_file_1562639814.jpg?x-oss-process=style/waterfall&$1=200" alt=""/></div>
-                                        <p className="name">伯纳天纯PureNatural</p>
-                                        <p className="country c999 ft12">中国</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <div className="imgs"><img src="https://img2.epetbar.com/brand/brandLogo/upload_file_1562639814.jpg?x-oss-process=style/waterfall&$1=200" alt=""/></div>
-                                        <p className="name">伯纳天纯PureNatural</p>
-                                        <p className="country c999 ft12">中国</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <div className="imgs"><img src="https://img2.epetbar.com/brand/brandLogo/upload_file_1562639814.jpg?x-oss-process=style/waterfall&$1=200" alt=""/></div>
-                                        <p className="name">伯纳天纯PureNatural</p>
-                                        <p className="country c999 ft12">中国</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div className="pinpailist">
-                        
-                        <div className="title c999 ft12 center">
-                            <span className="center">—— 推荐品牌 ——</span>
-                        </div>
-                        <div className="list">
-                            <ul className="listinfo">
-                                <li>
-                                    <a href="">
-                                        <div className="imgs"><img src="https://img2.epetbar.com/brand/brandLogo/upload_file_1562639814.jpg?x-oss-process=style/waterfall&$1=200" alt=""/></div>
-                                        <p className="name">伯纳天纯PureNatural</p>
-                                        <p className="country c999 ft12">中国</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <div className="imgs"><img src="https://img2.epetbar.com/brand/brandLogo/upload_file_1562639814.jpg?x-oss-process=style/waterfall&$1=200" alt=""/></div>
-                                        <p className="name">伯纳天纯PureNatural</p>
-                                        <p className="country c999 ft12">中国</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <div className="imgs"><img src="https://img2.epetbar.com/brand/brandLogo/upload_file_1562639814.jpg?x-oss-process=style/waterfall&$1=200" alt=""/></div>
-                                        <p className="name">伯纳天纯PureNatural</p>
-                                        <p className="country c999 ft12">中国</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <div className="imgs"><img src="https://img2.epetbar.com/brand/brandLogo/upload_file_1562639814.jpg?x-oss-process=style/waterfall&$1=200" alt=""/></div>
-                                        <p className="name">伯纳天纯PureNatural</p>
-                                        <p className="country c999 ft12">中国</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                        {
+                            brandlist.map((item,index)=>(
+                                <div className="pinpailist" key={index}>
+                                    <div className="title c999 ft12 center">
+                                        <span className="center">—— {item.title} ——</span>
+                                    </div>
+                                    <div className="list">
+                                        <ul className="listinfo">
+                                            {
+                                                item.list.map((items,indexs)=>(
+                                                    <li key={indexs}>
+                                                        <a href="">
+                                                            <div className="imgs"><img src={items.logo} alt="" /></div>
+                                                            <p className="name">{items.name}</p>
+                                                            <p className="country c999 ft12">{items.address}</p>
+                                                        </a>
+                                                    </li>
+                                                ))
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            ))
+                        }
                     </div>
                 </Content>
             </Fragment>
         )
+    }
+
+    componentDidMount(){
+        this.props.brandAsyncData();
     }
 }
 export default Classifytabtwo;

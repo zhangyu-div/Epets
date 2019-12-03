@@ -1,4 +1,4 @@
-import {Cart,Classify,Meng,Mine,Selected,Goodlist,Detail,Grouppet} from "pages";
+import {Cart,Classify,Meng,Mine,Selected,Goodlist,Detail,Grouppet,Videodetail} from "pages";
 import  Classifytabone from "components/classifytab/tabone";
 import  Classifytabtwo  from "components/classifytab/tabtwo";
 export const FootBarRoutes=[
@@ -89,8 +89,13 @@ export const FootBarRoutes=[
 
 export const NoFootBarRoutes=[
     {
-        path:"/goodlist",
+        path:"/goodlist/:cateid",
         component:Goodlist,
+        meta:{}
+    },
+    {
+        path:"/videodetail",
+        component:Videodetail,
         meta:{}
     },
 ];

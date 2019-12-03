@@ -40,9 +40,10 @@ export const Header=styled.div`
     }
     i{
         position: absolute;
-        right: .15rem;
+        right: .17rem;
         width: .14rem;
         height: .14rem;
+        font-size:.16rem;
     }
 
 `

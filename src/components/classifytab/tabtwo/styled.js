@@ -50,7 +50,6 @@ export const Content =styled.div`
         img{
           height:100%;
           width:100%;
-          display:inline-block;
         }
       }
       p{

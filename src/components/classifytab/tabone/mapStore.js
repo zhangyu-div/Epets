@@ -2,9 +2,10 @@ import {categoryAsyncAction,handlerightAsyncAction} from "actions/classify/class
 
 
 export const mapStateToProps=(state)=>({
-    categorylist:JSON.parse(localStorage.getItem("category"))||state.category.categorylist 
-
+    categorylist:JSON.parse(localStorage.getItem("category"))||state.category.categorylist,
+    rightlist:state.category.rightlist
 })
+
 
 
 export const mapDispatchToProps=(dispatch)=>({
@@ -12,7 +13,7 @@ export const mapDispatchToProps=(dispatch)=>({
         dispatch(categoryAsyncAction())
     },
 
-    handlerightAsyncData(){
-        dispatch(handlerightAsyncAction())
+    handlerightAsyncData(cateid){
+        dispatch(handlerightAsyncAction(cateid))
     }
 })

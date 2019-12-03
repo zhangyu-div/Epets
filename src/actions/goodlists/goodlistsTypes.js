@@ -1,0 +1,1 @@
+export const goodlistsAsyncType="GOODLISTS_ASYNC";

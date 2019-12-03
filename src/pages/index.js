@@ -77,3 +77,10 @@ export const Goodlist = Loadable({
     loading:Loading
 })
 
+
+export const Videodetail = Loadable({
+    loader:()=>import("./videodetail"),
+    loading:Loading
+})
+
+

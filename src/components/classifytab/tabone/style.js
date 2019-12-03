@@ -46,7 +46,7 @@ export const Rightlist=styled.div`
       padding: .05rem .05rem .20rem;
       border-top:1px solid #f3f4f5;
       width:100%;
-      p{
+      .all{
         display:flex;
         width:100%;
         justify-content:space-between;
@@ -80,8 +80,11 @@ export const Rightlist=styled.div`
                 height:100%;
               }
             }
-            p{
+            .name{
               text-align:center;
+              font-size:.12rem;
+              color: #999;
+              margin-top:.10rem;
             }
           }
         }

@@ -1,124 +1,91 @@
-import React,{Fragment}from "react";
-import {Contenter,Leftlist,Rightlist} from  "./style";
+import React, { Fragment } from "react";
+import { Contenter, Leftlist, Rightlist } from "./style";
 
-import {connect}  from "react-redux";
-import {mapStateToProps,mapDispatchToProps} from "./mapStore"; 
+import { connect } from "react-redux";
+import { mapStateToProps, mapDispatchToProps } from "./mapStore";
 import {Link} from "react-router-dom";
-@connect(mapStateToProps,mapDispatchToProps)
-class Classifytabone extends React.Component{
-    render(){
-        let {categorylist}=this.props;
-        return(
+@connect(mapStateToProps, mapDispatchToProps)
+class Classifytabone extends React.Component {
+    constructor(){
+        super();
+        this.state={
+            activeindex:0
+        }
+    }
+    render() {
+        let { categorylist, rightlist } = this.props;
+        let {activeindex}=this.state;
+        return (
             <Fragment>
                 <Contenter>
                     <Leftlist>
                         <ul>
                             {
-                                categorylist.map((item,index)=>(
-                                <li className="active" key={index}><Link > {item.name}</Link> </li>
+                                categorylist.map((item, index) => (
+                                    <li className={activeindex==index?'active':''} key={index} onClick={this.props.handlerightAsyncData.bind(this, item.cateid,index)} ><div onClick={this.handlecolor.bind(this,index)} > {item.name}</div></li>
                                 ))
                             }
                         </ul>
                     </Leftlist>
                     <Rightlist>
-                        <div className="lots">
-                            <p><span>狗狗主梁</span> <span>全部商品<i className="iconfont icon-jiantou1 "></i></span></p>
-                            <ul>
-                                <li>
-                                    <a href="">
-                                        <div><img src="https://img.epetht.com/nowater/2017-09/21/20/95ef871eb30d94dda553b3d728ffdab2.png" alt=""/></div>
-                                        <p>幼犬粮</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <div><img src="https://img.epetht.com/nowater/2017-09/21/20/95ef871eb30d94dda553b3d728ffdab2.png" alt=""/></div>
-                                        <p>幼犬粮</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <div><img src="https://img.epetht.com/nowater/2017-09/21/20/95ef871eb30d94dda553b3d728ffdab2.png" alt=""/></div>
-                                        <p>幼犬粮</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <div><img src="https://img.epetht.com/nowater/2017-09/21/20/95ef871eb30d94dda553b3d728ffdab2.png" alt=""/></div>
-                                        <p>幼犬粮</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="lots">
-                            <p><span>狗狗主梁</span> <span>全部商品<i className="iconfont icon-jiantou1 "></i></span></p>
-                            <ul>
-                                <li>
-                                    <a href="">
-                                        <div><img src="https://img.epetht.com/nowater/2017-09/21/20/95ef871eb30d94dda553b3d728ffdab2.png" alt=""/></div>
-                                        <p>幼犬粮</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <div><img src="https://img.epetht.com/nowater/2017-09/21/20/95ef871eb30d94dda553b3d728ffdab2.png" alt=""/></div>
-                                        <p>幼犬粮</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <div><img src="https://img.epetht.com/nowater/2017-09/21/20/95ef871eb30d94dda553b3d728ffdab2.png" alt=""/></div>
-                                        <p>幼犬粮</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <div><img src="https://img.epetht.com/nowater/2017-09/21/20/95ef871eb30d94dda553b3d728ffdab2.png" alt=""/></div>
-                                        <p>幼犬粮</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="bottomlots">
-                            <p>人们品牌</p>
-                            <ul>
-                                <li>
-                                    <a href="">
-                                        <div><img src="https://img2.epetbar.com/brand/brandLogo/purchase_suppliers_file_1537406580.png?x-oss-process=style/waterfall&$1=200" alt=""/></div>
-                                        <p>quanquanquna</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <div><img src="https://img2.epetbar.com/brand/brandLogo/purchase_suppliers_file_1537406580.png?x-oss-process=style/waterfall&$1=200" alt=""/></div>
-                                        <p>quanquanquna</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <div><img src="https://img2.epetbar.com/brand/brandLogo/purchase_suppliers_file_1537406580.png?x-oss-process=style/waterfall&$1=200" alt=""/></div>
-                                        <p>quanquanquna</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <div><img src="https://img2.epetbar.com/brand/brandLogo/purchase_suppliers_file_1537406580.png?x-oss-process=style/waterfall&$1=200" alt=""/></div>
-                                        <p>quanquanquna</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </Rightlist>
+                        {
+                            rightlist.map((item, index) => {
+                                if(item.title!=="热门品牌"){
+                                    return(
+                                        <div className="lots" key={index}>
+                                        <p className="all"><span>{item.title}</span> <span>全部商品<i className="iconfont icon-jiantou1 "></i></span></p>
+                                        <ul>
+                                            {
+                                                item.list.map((items,indexs)=>(
+                                                    <li key={indexs}>
+                                                        <Link to={'/goodlist/'+items.id_param.substring(7)}>
+                                                        <a>
+                                                            <div><img src={items.photo} alt="" /></div>
+                                                            <p className="name">{items.name}</p>
+                                                        </a>
+                                                        </Link>
+                                                    </li>
+                                                ))
+                                            }
+                                        </ul>
+                                    </div>
+                                    )
+                                }else{
+                                    return(
+                                        <div className="bottomlots" key={index}>
+                                            <p>{item.title}</p>
+                                            <ul>
+                                                {
+                                                    item.list.map((items,indexs)=>(
+                                                        <li key={indexs}>
+                                                        <a href="">
+                                                            <div><img src={items.logo} alt="" /></div>
+                                                            <p>{items.name}</p>
+                                                        </a>
+                                                    </li>
+                                                    ))
+                                                }
+                                            </ul>
+                                        </div>
+                                    )
+                                }
+                            })
+                        }
 
+                    </Rightlist>
                 </Contenter>
             </Fragment>
         )
     }
-    componentDidMount(){
-        if(!localStorage.getItem("category")){
+    handlecolor(index){
+        this.setState({
+            activeindex:index
+        })
+    }
+    componentDidMount() {
+        if (!localStorage.getItem("category")) {
             this.props.handlecategoryAsyncData();
         }
-
         this.props.handlerightAsyncData();
     }
 }

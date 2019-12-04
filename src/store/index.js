@@ -5,11 +5,13 @@ import category from "./reducers/category";
 import brand from "./reducers/brand";
 import goodlists from "./reducers/goodlists";
 import meng from "./reducers/meng";
+import user from "./reducers/user";
 const reducers = combineReducers({
     category,
     brand,
     goodlists,
-    meng
+    meng,
+    user
 })
 
 const store = createStore(reducers, composeWithDevTools(applyMiddleware(reduxThunk)));

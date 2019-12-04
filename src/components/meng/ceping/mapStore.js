@@ -6,8 +6,8 @@ export const mapStateToProps=(state)=>({
 })
 
 export const mapDispatchToProps=(dispatch)=>({
-    cepingData(){
-        dispatch(cepingAsyncAction())
+    cepingData(pet_type){
+        dispatch(cepingAsyncAction(pet_type))
     }
 })
 

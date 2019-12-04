@@ -83,4 +83,14 @@ export const Videodetail = Loadable({
     loading:Loading
 })
 
+export const Search = Loadable({
+    loader:()=>import("./search"),
+    loading:Loading
+})
+
+export const Goodsdetail = Loadable({
+    loader:()=>import("./goodsdetail"),
+    loading:Loading
+})
+
 

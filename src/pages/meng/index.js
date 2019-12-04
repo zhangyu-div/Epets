@@ -5,6 +5,7 @@ import Tuijian from "components/meng/tuijian";
 import Ceping from "components/meng/ceping";
 import Shoucang from "components/meng/shoucang";
 import Vidios from "components/meng/vidio";
+import observer from "utils/observer";
 class Meng extends React.Component {
     constructor(){
         super();
@@ -16,27 +17,28 @@ class Meng extends React.Component {
                 "推荐",
                 "达人测评",
                 "养宠视频"
-            ]
+            ],
+            text:true,
+            pet_type:"dog"
         })
     }
     render() {
-        let {flag,lists,active}=this.state;
+        let {flag,lists,active,text}=this.state;
         let show;
         switch(flag){
             case 1:
-                show=<Tuijian/>
+                show=<Tuijian msg={this.state.pet_type}/>
                 break;
             case 2:
-                show=<Ceping/>
+                show=<Ceping msg={this.state.pet_type}/>
                 break;
             case 0:
-                show=<Shoucang/>
+                show=<Shoucang msg={this.state.pet_type}/>
                 break;
             case 3:
-                show=<Vidios/>
+                show=<Vidios msg={this.state.pet_type}/>
                 break;
         }
-
         return (
             <Container>
                 <Headbar></Headbar>
@@ -46,7 +48,7 @@ class Meng extends React.Component {
                             <Search>
                                 <div className="left">
                                     <span className="iconfont icon-dizhi"></span>
-                                    <span className="gou">狗狗</span>
+                                    <span className="gou" onClick={this.toggle.bind(this)}>{text?'狗狗':'猫咪'}</span>
                                     <span className="iconfont icon-jiantou"></span>
                                 </div>
                                 <div className="center">
@@ -74,11 +76,29 @@ class Meng extends React.Component {
             </Container>
         )
     }
+
+componentDidMount(){
+    console.log(this)
+}
+
     handletoggle(index){
         this.setState({
             flag:index,
             active:index
         })
+    }
+
+
+
+    toggle(){
+
+        this.setState({
+            text:!this.state.text,
+            pet_type:this.state.text?'cat':'dog',
+        },()=>{
+            observer.$emit("handchange");
+        })
+
     }
 }
 export default Meng;

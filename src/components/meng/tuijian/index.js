@@ -2,10 +2,12 @@ import React from "react";
 import {Tuijan} from "./styled";
 import {connect} from "react-redux";
 import {mapStateToProps,mapDispatchToProps} from "./mapStore";
+import observer from "utils/observer";
 @connect(mapStateToProps,mapDispatchToProps)
 class Tuijian extends React.Component {
     render() {
         let {tuijianlists}=this.props;
+
         return (
             <Tuijan>
             <div className="container">
@@ -59,7 +61,13 @@ class Tuijian extends React.Component {
         )
     }
     componentDidMount(){
-        this.props.tuijianData();
+        let pet_type=this.props.msg;
+        this.props.tuijianData(pet_type);
+        observer.$on("handchange",()=>{
+            let pet_type=this.props.msg;
+            this.props.tuijianData(pet_type);
+        })
     }
+    
 }
 export default Tuijian;

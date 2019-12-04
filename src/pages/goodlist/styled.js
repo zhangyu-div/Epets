@@ -5,9 +5,12 @@ export const Container=styled.div`
     height:100%;
 `
 export const Search=styled.div`
-    width:3.75rem;
+    background:#fff;
+    z-index:5;
+    width:100%;
     height:0.6rem;
     padding:0.1rem;
+    position: relative;
     .form{
         padding:0 0.1rem;
         border-radius:0.05rem;
@@ -35,7 +38,11 @@ export const Search=styled.div`
 `
 
 export const Toggle=styled.div`
+    background:#fff;
     height:0.4rem;
+    width:100%;
+    z-index:10;
+    position: relative;
     .tabbar{
         position:relative;
         display:flex;

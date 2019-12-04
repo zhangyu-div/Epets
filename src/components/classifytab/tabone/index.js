@@ -39,7 +39,7 @@ class Classifytabone extends React.Component {
                                                 item.list.map((items,indexs)=>(
                                                     <li key={indexs}>
                                                         <Link to={'/goodlist/'+items.id_param.substring(7)}>
-                                                        <a href="">
+                                                        <a href="fdfdf">
                                                             <div><img src={items.photo} alt="" /></div>
                                                             <p className="name">{items.name}</p>
                                                         </a>

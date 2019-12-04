@@ -18,7 +18,7 @@ class Classify  extends React.Component{
                     </div>
                     <div className="pinpai">
                         <a><span className={!cur?'cur':''}  onClick={this.handletoggles.bind(this)}>品牌</span></a>
-                        <i className="iconfont icon-sousuo " ></i>
+                        <i className="iconfont icon-sousuo " onClick={this.handlesearch.bind(this)} ></i>
                     </div>
                 </Header>
             </Fragment>
@@ -35,6 +35,9 @@ class Classify  extends React.Component{
         this.setState({
             cur:false
         })
+    }
+    handlesearch(){
+        this.props.history.push("/search")
     }
 }
 export default withRouter(Classify);

@@ -3,6 +3,7 @@ import {Vidio} from "./styled";
 import {connect} from "react-redux";
 import {mapStateToProps,mapDispatchToProps} from "./mapStore";
 import {Link} from "react-router-dom";
+import observer from "utils/observer";
 @connect(mapStateToProps,mapDispatchToProps)
 class Vidios extends React.Component {
     render() {
@@ -47,7 +48,12 @@ class Vidios extends React.Component {
         )
     }
     componentDidMount(){
-        this.props.vedioData();
+        let pet_type=this.props.msg;
+        this.props.vedioData(pet_type);
+        observer.$on("handchange",()=>{
+            let pet_type=this.props.msg;
+            this.props.vedioData(pet_type);
+        })
     }
 
 }

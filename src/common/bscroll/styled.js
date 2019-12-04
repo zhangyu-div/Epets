@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 
-export const Bswrapper = styled.div`
+export const BsWrapper = styled.div`
     height:100%;
 
 `

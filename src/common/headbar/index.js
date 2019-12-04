@@ -13,7 +13,6 @@ class Headbar extends React.Component{
     }
     render(){
         let {flag}=this.state;
-
         return (
             <Fragment>
                 <div>
@@ -23,10 +22,10 @@ class Headbar extends React.Component{
                         <div className={this.props.icon} onClick={this.hanleopen.bind(this)}></div>
                     </Header>
                     <HeaderOpen style={{display:flag?'flex':'none'}}>
-                        <a><div className="iconfont icon-shouye1"></div><div>首页</div> </a>
-                        <a><div className="iconfont icon-fenlei"></div><div>商品分类</div> </a>
-                        <a><div className="iconfont icon-gouwuche"></div><div>购物车</div> </a>
-                        <a><div className="iconfont icon--xiaogou"></div><div>我的e宠</div> </a>
+                        <a><div className="iconfont icon-shouye1" onClick={this.gohome.bind(this)}></div><div>首页</div> </a>
+                        <a><div className="iconfont icon-fenlei" onClick={this.fenlei.bind(this)}></div><div>商品分类</div> </a>
+                        <a><div className="iconfont icon-gouwuche" onClick={this.gocar.bind(this)}></div><div>购物车</div> </a>
+                        <a><div className="iconfont icon--xiaogou" onClick={this.gomine.bind(this)}></div><div>我的e宠</div> </a>
                     </HeaderOpen>
                 </div>
             </Fragment>
@@ -35,6 +34,18 @@ class Headbar extends React.Component{
     handleback(){
         this.props.history.goBack();
     }
+    gohome(){
+        this.props.history.push("/selected");
+    }
+    fenlei(){
+        this.props.history.push("/classify");
+    }
+    gocar(){
+        this.props.history.push("/cart");
+    }
+    gomine(){
+        this.props.history.push("/mine");
+    }
     hanleopen(){
     this.setState({
         flag:!this.state.flag
@@ -42,7 +53,7 @@ class Headbar extends React.Component{
     }
 }
 
-Headbar.defaultProps={
+Headbar.defaultProps={  
     name:"小萌书",
     icon:'iconfont icon-changyongtubiao-xianxingdaochu-zhuanqu-',
 }

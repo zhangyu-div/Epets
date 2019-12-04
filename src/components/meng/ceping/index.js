@@ -2,11 +2,11 @@ import React from "react";
 import {Cep} from "./styled";
 import {connect} from "react-redux";
 import {mapStateToProps,mapDispatchToProps} from "./mapStore";
+import observer from "utils/observer";
 @connect(mapStateToProps,mapDispatchToProps)
 class Ceping extends React.Component {
     render() {
         let {cepinglists}=this.props;
-
         return (
             cepinglists.map((item,index)=>(
                 <Cep key={index}>
@@ -29,13 +29,18 @@ class Ceping extends React.Component {
                             <span>{item.data.favnums}</span>
                         </div>
                     </div>
-            </Cep>
+                </Cep>
             ))
 
         )
     }
     componentDidMount(){
-        this.props.cepingData();
+        let pet_type=this.props.msg;
+        this.props.cepingData(pet_type);
+        observer.$on("handchange",()=>{
+            let pet_type=this.props.msg;
+            this.props.cepingData(pet_type);
+        })
     }
 
 }

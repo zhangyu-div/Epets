@@ -1,11 +1,11 @@
 import http from "utils/request";
-export const tuijianApi =()=>http.get({
+export const tuijianApi =(pet_type="dog")=>http.get({
     url:"v3/content/opgc/Index.html",
     data:{
         do: 'GetList',
         param: 0,
         page: 1,
-        pet_type:'dog',
+        pet_type:pet_type,
         system:'wap',
         isWeb: 1,
         version: 303,
@@ -13,13 +13,15 @@ export const tuijianApi =()=>http.get({
     }
 })
 
-export const cepingApi =()=>http.get({
+
+
+export const cepingApi =(pet_type="dog")=>http.get({
     url:"v3/content/opgc/Index.html",
     data:{
         do:'GetList',
         param: 1,
         page: 1,
-        pet_type: 'dog',
+        pet_type: pet_type,
         system: 'wap',
         isWeb: 1,
         version: 303,
@@ -28,13 +30,14 @@ export const cepingApi =()=>http.get({
 })
 
 
-export const videoApi =()=>http.get({
+
+export const videoApi =(pet_type="dog")=>http.get({
     url:"v3/content/opgc/Index.html",
     data:{
         do:'GetList',
         param: 4,
         page: 1,
-        pet_type: 'dog',
+        pet_type:pet_type,
         system: 'wap',
         isWeb: 1,
         version: 303,

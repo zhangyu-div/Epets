@@ -3,12 +3,14 @@ import {Container,Search,Toggle,Lists} from "./styled";
 import Headbar from "common/headbar";
 import {connect} from "react-redux";
 import {mapStateToProps,mapDispatchToProps} from "./mapStore";
-import {withRouter} from "react-router-dom";
+import {withRouter,Link} from "react-router-dom";
+import Bscroll from "common/bscroll"; 
 @connect(mapStateToProps,mapDispatchToProps)
 @withRouter
 class Goodlist extends React.Component{
     constructor(){
         super();
+        this.page=1;
         this.state={
             switchs:"默认",
             flag:false,
@@ -46,19 +48,20 @@ class Goodlist extends React.Component{
 
     }
     render(){
-
         let {goodlists}=this.props;
         let {toggle,switchs,flag,colors,flagone,flagtwo,flagthree,flagthrees,flagfour}=this.state;
         return(
+
             <Container>
                 <Headbar></Headbar>
                 <Search>
                     <div className="form">
+                        <Link to="/search/">
                         <span className="iconfont icon-sousuo"></span>
                         <input type="search" placeholder="点击搜索商品"/>
+                        </Link>
                     </div>
                 </Search>
-
                 <Toggle>
                     <ul className="tabbar">
                         <li className={flagone?'active':''} onClick={this.handleToggle.bind(this)}><span>{switchs}</span><i className="iconfont icon-jiantou" ></i></li>
@@ -74,12 +77,15 @@ class Goodlist extends React.Component{
                         </div>
                     </ul>
                 </Toggle>
-
+                <Bscroll ref="scroll">
+                    <div>
                 {
                     goodlists.map((item,index)=>(
                         <Lists key={index}>
                         <ul>
+                        <Link to={'/goodsdetail/'+item.gid}>
                             <li>
+                               
                                 <a href="" className="left"><img src={item.photo} alt=""/></a>
                                 <div className="right">
                                     <p className="name">{item.subject}</p>
@@ -90,12 +96,17 @@ class Goodlist extends React.Component{
                                         <img src="//static.epetbar.com/static_wap/epetapp/pages/index/images/addcart.png"/>
                                     </div>
                                 </div>
+                          
                             </li>
+                            </Link>
                         </ul>
                     </Lists>
                     ))
                 }
+                </div>
+                     </Bscroll>
             </Container>
+       
         )
     }
     handleToggle(){
@@ -127,6 +138,7 @@ class Goodlist extends React.Component{
             flagtwo:true,
             flagthree:false,
             flagfour:false,
+            flag:false,
             orderby:'sold_desc',
         },()=>{
             this.handleAsyncList();
@@ -143,16 +155,14 @@ class Goodlist extends React.Component{
                 flagthree:true,
                 flagthrees:true,
                 flagfour:false,
+                flag:false,
                 orderby:'price_asc',
             },()=>{
                 this.handleAsyncList();
             })
         }else{
             this.setState({
-                // flagone:false,
-                // flagtwo:false,
                 flagthrees:false,
-                // flagfour:false,
                 orderby:'price_desc',
             },()=>{
                 this.handleAsyncList();
@@ -162,15 +172,29 @@ class Goodlist extends React.Component{
     }
 
 
-
-
     componentDidMount(){
+        console.log(this.props)
         this.handleAsyncList();
+
+        this.refs.scroll.handlepullingUp(()=>{
+            console.log("fhdsjklfhsdlkafhlksd")
+            // let {cateid}=this.props.match.params;
+            // let {orderby} =this.state;
+            // let page=this.page
+            // this.props.goodslist(cateid,page,orderby);
+            // page++;
+        })
+    
     }
     handleAsyncList(){
         let {cateid}=this.props.match.params;
         let {page,orderby} =this.state;
-        this.props.goodslist(cateid,page,orderby);
+        console.log(this.props.location.state)
+        let extend_pam =this.props.location.state;
+        this.props.goodslist(cateid,page,orderby,extend_pam);
+  
+     
+        // console.log(this.props)
     }
 
     

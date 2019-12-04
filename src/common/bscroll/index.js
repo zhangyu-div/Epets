@@ -1,15 +1,16 @@
 import React, { Component} from 'react'
 import BScroll from "better-scroll"
-import {Bswrapper} from "./styled"
+import {BsWrapper} from "./styled"
 export default class BscrollCom extends Component {
     render() {
         return (
-            <Bswrapper ref="wrapper">
-               {this.props.children};
-            </Bswrapper>
+            <BsWrapper ref="wrapper">
+               {this.props.children}
+            </BsWrapper>
         )
     }
     componentDidMount(){
+        this.scroll=new BScroll(this.refs.wrapper)
         this.scroll = new BScroll(this.refs.wrapper,{
             pullUpLoad:true,
             click:true,

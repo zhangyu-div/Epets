@@ -1,7 +1,7 @@
 
 
 import { handleActions} from "redux-actions";
-import {goodlistsAsyncType} from "actions/goodlists/goodlistsTypes";
+import {goodlistsAsyncType,goodsdetailAsyncType} from "actions/goodlists/goodlistsTypes";
 // const defaultState = {
 //     brandlist: [],
 // }
@@ -16,7 +16,9 @@ import {goodlistsAsyncType} from "actions/goodlists/goodlistsTypes";
 // }, defaultState);
 
 const defaultState = {
-    goodlists:[]
+    goodlists:[],
+    goodsdetaillistphotos:[],
+    details:'',
 }
 
 
@@ -25,5 +27,12 @@ export default handleActions({
         let goodlistsState=JSON.parse(JSON.stringify(state));
         goodlistsState.goodlists=action.payload.list;
         return goodlistsState;
+    },
+    [goodsdetailAsyncType]:(state,action)=>{
+        let goodsdetailState=JSON.parse(JSON.stringify(state));
+        goodsdetailState.goodsdetaillistphotos=action.payload.datas[0].photos;
+        goodsdetailState.details=action.payload.datas[1];
+
+        return goodsdetailState;
     }
 }, defaultState);

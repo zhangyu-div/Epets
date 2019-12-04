@@ -6,7 +6,7 @@ export const mapStateToProps=(state)=>({
 })
 
 export const mapDispatchToProps=(dispatch)=>({
-    goodslist(cateid,page,orderby){
-        dispatch(goodlistsAsyncAction(cateid,page,orderby));
+    goodslist(cateid,page,orderby,extend_pam){
+        dispatch(goodlistsAsyncAction(cateid,page,orderby,extend_pam));
     }
 })

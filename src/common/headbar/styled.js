@@ -10,6 +10,7 @@ export const Header = styled.div`
     justify-content:space-around;
     border-bottom:1px solid #e5e5e5;
     font-size:0.18rem;
+    z-index: 5;
     .iconfont{
         font-size:.24rem;
     }

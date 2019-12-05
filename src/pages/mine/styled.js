@@ -129,12 +129,13 @@ export const Money=styled.div`
             font-size:0.12rem;
             color:#333;
             span{   
-                width:20%;
+                width:25%;
                 display:inline-block;
                 text-align:center;
                 b{
                     color: #ff5757;
                     font-size:0.14rem;
+    
                 }
             }
         }

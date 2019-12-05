@@ -26,8 +26,6 @@ const get = (options) => {
 
     return result;
 }
-
-
 const post = (options) => {
     var result = fetchPro(options.url, {
         method: options.method,

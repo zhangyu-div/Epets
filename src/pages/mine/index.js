@@ -1,7 +1,7 @@
 import React from "react";
 import Headbar from "common/headbar";
 import {Container,Top,Order,Money,Service} from "./styled"
-import {withRouter} from "react-router-dom";
+import {withRouter,Link} from "react-router-dom";
 import {connect} from "react-redux";
 import {mapStateToProps,mapDispatchToProps} from "./mapStore";
 @connect(mapStateToProps,mapDispatchToProps)
@@ -9,6 +9,7 @@ import {mapStateToProps,mapDispatchToProps} from "./mapStore";
 class Cart extends React.Component{
     render(){
         console.log(this.props)
+        let {orderlist,moneylist,servicelist}=this.props;
         return(
             <Container>
                 <Headbar name="我的E宠"></Headbar>
@@ -19,9 +20,9 @@ class Cart extends React.Component{
                     </div>
                     <div className="center">
                         <span><img src="https://static.epetbar.com/static_wap/appmall/avatar/cat.png" alt=""/></span>
-                        <span>登录</span>
+                        <span><Link to="/login"> 登录</Link></span>
                         <span>|</span>
-                        <span>注册</span>
+                        <span><Link to="/register"> 注册</Link></span>
                     </div>
                     <div className="bottom">
                         <span><img src="https://img2.epetbar.com/nowater/2018-11/22/08/71ff7f9ee43b98e8c68cb150f3f03169.png" alt=""/></span>
@@ -36,33 +37,36 @@ class Cart extends React.Component{
                     
                     <h3>我的订单</h3>
                     <div>
-                        <span><b><img src="https://img2.epetbar.com/nowater/2018-11/22/09/fb45b8f54a662a0574c941ffb4de2d88.png" alt=""/></b>代付款</span>
-                        <span><b><img src="https://img2.epetbar.com/nowater/2018-11/22/09/fb45b8f54a662a0574c941ffb4de2d88.png" alt=""/></b>代付款</span>
-                        <span><b><img src="https://img2.epetbar.com/nowater/2018-11/22/09/fb45b8f54a662a0574c941ffb4de2d88.png" alt=""/></b>代付款</span>
-                        <span><b><img src="https://img2.epetbar.com/nowater/2018-11/22/09/fb45b8f54a662a0574c941ffb4de2d88.png" alt=""/></b>代付款</span>
-                        <span><b><img src="https://img2.epetbar.com/nowater/2018-11/22/09/fb45b8f54a662a0574c941ffb4de2d88.png" alt=""/></b>代付款</span>
+                        {
+                            orderlist.map((item,index)=>(
+                            <span key={index}><b><img src={item.above_image.img_url} alt=""/></b>{item.below_text}</span>
+                            ))
+                        }
+                       
                     </div>
                 </Order>
                 <Money>
                     <h3>我的订单</h3>
                         <div>
-                            <span><b>0.0</b><br/> 代付款</span>
-                            <span><b>0.0</b> <br/>代付款</span>
-                            <span><b>0.0</b><br/> 代付款</span>
-                            <span><b>0.0</b><br/> 代付款</span>
-                            <span><b>0.0</b> <br/>代付款</span>
+                            {
+                                moneylist.map((item,index)=>(
+                                    <span key={index}><b>{item.above_text}</b><br/><br/>{item.below_text}</span>
+                                ))
+                            }
+                      
+
                         </div>
                 </Money>
                 <Service>
                     <h3>我的服务</h3>
                     <ul>
-                        <li><b><img src="https://img2.epetbar.com/nowater/2019-06/05/00/f2f93d58a1d8ee48053595c7a1fcefda.png" alt=""/></b><br/> 联系客服</li>
-                        <li><b><img src="https://img2.epetbar.com/nowater/2019-06/05/00/f2f93d58a1d8ee48053595c7a1fcefda.png" alt=""/></b><br/> 联系客服</li>
-                        <li><b><img src="https://img2.epetbar.com/nowater/2019-06/05/00/f2f93d58a1d8ee48053595c7a1fcefda.png" alt=""/></b><br/> 联系客服</li>
-                        <li><b><img src="https://img2.epetbar.com/nowater/2019-06/05/00/f2f93d58a1d8ee48053595c7a1fcefda.png" alt=""/></b><br/> 联系客服</li>
-                        <li><b><img src="https://img2.epetbar.com/nowater/2019-06/05/00/f2f93d58a1d8ee48053595c7a1fcefda.png" alt=""/></b><br/> 联系客服</li>
-                        <li><b><img src="https://img2.epetbar.com/nowater/2019-06/05/00/f2f93d58a1d8ee48053595c7a1fcefda.png" alt=""/></b><br/> 联系客服</li>
-                        <li><b><img src="https://img2.epetbar.com/nowater/2019-06/05/00/f2f93d58a1d8ee48053595c7a1fcefda.png" alt=""/></b><br/> 联系客服</li>
+                        {
+                            servicelist.map((item,index)=>(
+                                <li key={index}><b><img src={item.above_image.img_url} alt=""/></b><br/>{item.below_text}</li>
+                            ))
+                        }
+                      
+                       
                     </ul>
                 </Service>
             </Container>

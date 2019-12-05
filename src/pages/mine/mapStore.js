@@ -1,7 +1,9 @@
 import {mineAsyncAction} from "actions/user/userCreators";
 
 export const mapStateToProps=(state)=>({
-    minelist:state.user.minelist
+    orderlist:state.user.orderlist,
+    moneylist:state.user.moneylist,
+    servicelist:state.user.servicelist
 })
 
 export const mapDispatchToProps=(dispatch)=>({

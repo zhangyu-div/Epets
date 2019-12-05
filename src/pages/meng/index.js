@@ -77,9 +77,6 @@ class Meng extends React.Component {
         )
     }
 
-componentDidMount(){
-    console.log(this)
-}
 
     handletoggle(index){
         this.setState({

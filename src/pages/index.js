@@ -93,4 +93,15 @@ export const Goodsdetail = Loadable({
     loading:Loading
 })
 
+export const Login = Loadable({
+    loader:()=>import("./login"),
+    loading:Loading
+})
+
+
+export const Register = Loadable({
+    loader:()=>import("./register"),
+    loading:Loading
+})
+
 

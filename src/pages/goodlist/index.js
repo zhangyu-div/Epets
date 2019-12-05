@@ -173,28 +173,26 @@ class Goodlist extends React.Component{
 
 
     componentDidMount(){
-        console.log(this.props)
+
         this.handleAsyncList();
 
         this.refs.scroll.handlepullingUp(()=>{
-            console.log("fhdsjklfhsdlkafhlksd")
+
             // let {cateid}=this.props.match.params;
             // let {orderby} =this.state;
             // let page=this.page
             // this.props.goodslist(cateid,page,orderby);
             // page++;
         })
-    
     }
     handleAsyncList(){
         let {cateid}=this.props.match.params;
         let {page,orderby} =this.state;
-        console.log(this.props.location.state)
+ 
         let extend_pam =this.props.location.state;
         this.props.goodslist(cateid,page,orderby,extend_pam);
   
-     
-        // console.log(this.props)
+
     }
 
     

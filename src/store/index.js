@@ -14,6 +14,7 @@ const reducers = combineReducers({
     user
 })
 
+
 const store = createStore(reducers, composeWithDevTools(applyMiddleware(reduxThunk)));
 
 

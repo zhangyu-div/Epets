@@ -8,7 +8,7 @@ import {withRouter} from "react-router-dom";
 class Goodsdetail extends React.Component {
     render() {
         let {goodsdetaillistphotos,details}=this.props;
-        console.log(details)
+
         return (
             <Container>
                 <Header>

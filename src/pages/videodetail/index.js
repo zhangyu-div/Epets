@@ -10,7 +10,7 @@ class Videodetail extends React.Component {
     render() {
         let {videodetail,series,users,lists,links}=this.props;
         let obj=Object.values(lists);
-        console.log(obj)
+
         return (
             <Container>
                 <Headbar></Headbar>

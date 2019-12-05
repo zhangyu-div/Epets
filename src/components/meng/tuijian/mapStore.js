@@ -18,8 +18,8 @@ export const mapStateToProps=(state)=>({
 })
 
 export const mapDispatchToProps=(dispatch)=>({
-    tuijianData(pet_type){
-        dispatch(TuijianAsyncAction(pet_type))
+    tuijianData(pet_type,page){
+        dispatch(TuijianAsyncAction(pet_type,page))
     }
 })
 

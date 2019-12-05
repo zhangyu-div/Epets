@@ -1,10 +1,10 @@
 import http from "utils/request";
-export const tuijianApi =(pet_type="dog")=>http.get({
+export const tuijianApi =(pet_type="dog",page='1')=>http.get({
     url:"v3/content/opgc/Index.html",
     data:{
         do: 'GetList',
         param: 0,
-        page: 1,
+        page: page,
         pet_type:pet_type,
         system:'wap',
         isWeb: 1,

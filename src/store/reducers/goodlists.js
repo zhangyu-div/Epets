@@ -25,6 +25,7 @@ const defaultState = {
 export default handleActions({
     [goodlistsAsyncType]:(state,action)=>{
         let goodlistsState=JSON.parse(JSON.stringify(state));
+        // goodlistsState.goodlists=[...goodlistsState.goodlists,...action.payload.list];
         goodlistsState.goodlists=action.payload.list;
         return goodlistsState;
     },
@@ -32,7 +33,6 @@ export default handleActions({
         let goodsdetailState=JSON.parse(JSON.stringify(state));
         goodsdetailState.goodsdetaillistphotos=action.payload.datas[0].photos;
         goodsdetailState.details=action.payload.datas[1];
-
         return goodsdetailState;
     }
 }, defaultState);

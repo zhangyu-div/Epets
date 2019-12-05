@@ -2,10 +2,10 @@ import {TuijianType,cepingType,videoType,videodetailType} from "./mengTypes";
 import {tuijianApi,cepingApi,videoApi,videodetailApi} from "api/meng";
 import {createAction} from "redux-actions";
 
-export const TuijianAsyncAction=(pet_type)=>{
+export const TuijianAsyncAction=(pet_type,page)=>{
     let TuijianAction =createAction(TuijianType,(data)=>data);
     return async (dispatch)=>{
-        let data=await tuijianApi(pet_type);
+        let data=await tuijianApi(pet_type,page);
         dispatch(TuijianAction(data));
     }
 }

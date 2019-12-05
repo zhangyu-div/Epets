@@ -7,6 +7,8 @@ export const Tuijan = styled.div`
         margin-bottom:-0.15rem;
         display:flex;
         width:100%;
+        background:#fff;
+
         justify-content:space-between;
         a{
             display:block;
@@ -18,6 +20,7 @@ export const Tuijan = styled.div`
         }
     }
     .lists{
+        position:relative;
         height:1.28rem;
         padding:0.15rem;
         margin:0 auto;

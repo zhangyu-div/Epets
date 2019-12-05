@@ -19,6 +19,7 @@ export default handleActions({
     [TuijianType]:(state,action)=>{
         let TuijianState=JSON.parse(JSON.stringify(state));
         TuijianState.tuijianlists=action.payload.data.list;
+        // TuijianState.tuijianlists=[...TuijianState.tuijianlists,...action.payload.data.list];
         return TuijianState;
     },
     [cepingType]:(state,action)=>{

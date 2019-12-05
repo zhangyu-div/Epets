@@ -6,6 +6,8 @@ export  const Container=styled.div`
 export const Box = styled.div`
     width: 100%;
     background:#fff;
+    position:relative;
+        z-index:2;
     font-family: SourceHanSansCN-Medium;
     border-bottom: 1px solid #F3F4F5;
     .box{
@@ -16,15 +18,15 @@ export const Box = styled.div`
         width:92%;
         margin:0 auto;
     }
-
 `
 
 export const Search = styled.div`
     overflow: hidden;
     width: 100%;
-    height: .3rem;
+    height: .4rem;
+    padding-top:.1rem;
     margin-bottom: .1rem;
-    margin-top: .1rem;
+
     display:flex;
     justify-content:space-between;
     align-items: center;

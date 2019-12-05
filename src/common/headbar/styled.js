@@ -26,6 +26,8 @@ export const HeaderOpen = styled.div`
     background:#fff;
     display:none;
     justify-content:space-around;
+    position: relative;
+    z-index:6;
     a{
         display:block;
         padding-top:0.1rem;

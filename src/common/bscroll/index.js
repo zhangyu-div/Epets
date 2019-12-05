@@ -10,7 +10,6 @@ export default class BscrollCom extends Component {
         )
     }
     componentDidMount(){
-        this.scroll=new BScroll(this.refs.wrapper)
         this.scroll = new BScroll(this.refs.wrapper,{
             pullUpLoad:true,
             click:true,

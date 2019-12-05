@@ -39,6 +39,7 @@ export const Formbox=styled.div`
                 border:none;
             }
         }
+
         button{
         width:100%;
         height:0.5rem;
@@ -51,7 +52,13 @@ export const Formbox=styled.div`
         text-align:center;
         border:none;
         margin-top:0.39rem;
+        border:none;
+        outline:none;
+        
     }
+    .cur{
+            background:DarkSlateBlue;
+        }
     p{
         width:100%;
         display:flex;

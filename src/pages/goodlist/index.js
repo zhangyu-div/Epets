@@ -78,7 +78,7 @@ class Goodlist extends React.Component{
                     </ul>
                 </Toggle>
                 <Bscroll ref="scroll">
-                    <div>
+                    <div className="goodslist">
                 {
                     goodlists.map((item,index)=>(
                         <Lists key={index}>
@@ -104,7 +104,7 @@ class Goodlist extends React.Component{
                     ))
                 }
                 </div>
-                     </Bscroll>
+                </Bscroll>
             </Container>
        
         )
@@ -171,28 +171,27 @@ class Goodlist extends React.Component{
 
     }
 
-
+    componentWillUpdate(){
+        this.refs.scroll.handlefinishPullUp();
+    }
     componentDidMount(){
-
         this.handleAsyncList();
 
         this.refs.scroll.handlepullingUp(()=>{
-
-            // let {cateid}=this.props.match.params;
-            // let {orderby} =this.state;
-            // let page=this.page
-            // this.props.goodslist(cateid,page,orderby);
-            // page++;
+            let {cateid}=this.props.match.params;
+            let {orderby} =this.state;
+            let extend_pam =this.props.location.state;
+            let page=this.page;
+            this.props.goodslist(cateid,page,orderby,extend_pam);
+            this.page++;
         })
     }
     handleAsyncList(){
         let {cateid}=this.props.match.params;
-        let {page,orderby} =this.state;
- 
+        let {orderby} =this.state;
         let extend_pam =this.props.location.state;
+        let page=1;
         this.props.goodslist(cateid,page,orderby,extend_pam);
-  
-
     }
 
     

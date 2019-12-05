@@ -11,10 +11,11 @@ class Register extends React.Component{
         this.state={
             account:'',
             pwd:'',
+            flag:false
         }
     }
     render(){
-        let {account,pwd}=this.state;
+        let {account,pwd,flag}=this.state;
         return(
             <Container>
                 <div className="header">
@@ -29,18 +30,12 @@ class Register extends React.Component{
                         <div className="input">
                             <input type="password" placeholder="密码" value={pwd} onChange={this.handlechanges.bind(this)}/>
                         </div>
-                        <button type="button" onClick={this.handregister.bind(this)}>注册</button>
+                        <button type="button" onClick={this.handregister.bind(this)}  className={flag?'cur':''}>注册</button>
                     </div>
          
                 </Formbox>
                 <Footer>    
-                    {/* <h2>
-                        <img src="https://static.epetbar.com/static_web/wap/src/images/newlogin/newother.png" alt=""/>
-                    </h2>
-                    <div>
-                        <span><img src="https://static.epetbar.com/static_web/wap/src/images/newlogin/newother2.png" alt=""/></span>
-                        <span><img src="https://static.epetbar.com/static_web/wap/src/images/newlogin/newother3.png" alt=""/></span>
-                    </div> */}
+
                     <p>登录代表您阅读并同意<b>《E宠商城用户协议》</b></p>
 
                 </Footer>
@@ -51,7 +46,10 @@ class Register extends React.Component{
     handregister(){
         let username=this.state.account;
         let password=this.state.pwd;
-        this.props.registerdata(username,password);
+
+        if(username&&password){
+            this.props.registerdata(username,password);
+        }
     }
 
     back(){
@@ -61,12 +59,37 @@ class Register extends React.Component{
         let val=e.target.value;
         this.setState({
             account:val,
+        },()=>{
+            let {account,pwd}=this.state;
+            if(account&&pwd){
+                this.setState({
+                    flag:true
+                })
+            }else{
+                if(!account||!pwd){
+                    this.setState({
+                        flag:false
+                    })
+                }
+            }
         })
     }
     handlechanges(e){
         let val=e.target.value;
         this.setState({
             pwd:val,
+        },()=>{
+            let {account,pwd}=this.state;
+            if(account&&pwd){
+                this.setState({
+                    flag:true
+                })
+            }
+            if(!account||!pwd){
+                this.setState({
+                    flag:false
+                })
+            }
         })
     }
 }

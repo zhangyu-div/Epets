@@ -3,12 +3,18 @@ import {Tuijan} from "./styled";
 import {connect} from "react-redux";
 import {mapStateToProps,mapDispatchToProps} from "./mapStore";
 import observer from "utils/observer";
+import Bscroll from "common/bscroll";
 @connect(mapStateToProps,mapDispatchToProps)
 class Tuijian extends React.Component {
+    constructor(){
+        super();
+        this.page=1;
+    }
     render() {
         let {tuijianlists}=this.props;
 
         return (
+            <Bscroll ref="scroll">
             <Tuijan>
             <div className="container">
                 <div className="header">
@@ -26,6 +32,7 @@ class Tuijian extends React.Component {
                         })
                     }
                 </div>
+            
                 {
                     tuijianlists.map((item,index)=>{
                         if(item.type==1){
@@ -55,19 +62,33 @@ class Tuijian extends React.Component {
                         }
                     })
                 }
-
             </div>
         </Tuijan> 
+        </Bscroll>
         )
     }
+    componentWillUpdate(){
+        this.refs.scroll.handlefinishPullUp();
+    }
     componentDidMount(){
+        console.log(this.refs)
         let pet_type=this.props.msg;
         this.props.tuijianData(pet_type);
+        this.page++;
+        this.refs.scroll.handlepullingUp(()=>{
+            let pet_type=this.props.msg;
+            let page=this.page;
+            this.props.tuijianData(pet_type,page);
+            this.page++;
+        })
+
+
         observer.$on("handchange",()=>{
             let pet_type=this.props.msg;
             this.props.tuijianData(pet_type);
         })
     }
+
     
 }
 export default Tuijian;

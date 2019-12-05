@@ -12,10 +12,11 @@ class Login extends React.Component{
             account:'',
             pwd:'',
             info:'',
+            flag:false
         }
     }
     render(){
-        let {account,pwd}=this.state;
+        let {account,pwd,flag}=this.state;
         return(
             <Container>
                 <div className="header">
@@ -30,7 +31,7 @@ class Login extends React.Component{
                         <div className="input">
                             <input type="password" placeholder="密码" value={pwd} onChange={this.handlechanges.bind(this)}/>
                         </div>
-                        <button type="button" onClick={this.handlelogin.bind(this)}>登录</button>
+                        <button type="button" onClick={this.handlelogin.bind(this)}  className={flag?'cur':''}>登录</button>
                     <p> <span>短信验证码登录</span><span> <Link to="/register">新用户注册</Link></span></p>
                     </div>
          
@@ -49,23 +50,51 @@ class Login extends React.Component{
             </Container>
         )
     }   
-
     handlelogin(){
         let username=this.state.account;
         let password=this.state.pwd;
-        this.props.logindata(username,password);
- 
+        if(username&&password){
+            this.props.logindata(username,password);
+        }
+
     }
     handlechange(e){
         let val=e.target.value;
+        
         this.setState({
             account:val,
+        },()=>{
+            let {account,pwd}=this.state;
+            if(account&&pwd){
+                this.setState({
+                    flag:true
+                })
+            }else{
+                if(!account||!pwd){
+                    this.setState({
+                        flag:false
+                    })
+                }
+            }
         })
     }
     handlechanges(e){
         let val=e.target.value;
         this.setState({
             pwd:val,
+        },()=>{
+            let {account,pwd}=this.state;
+            if(account&&pwd){
+                this.setState({
+                    flag:true
+                })
+            }
+            if(!account||!pwd){
+                this.setState({
+                    flag:false
+                })
+            }
+
         })
     }
     back(){

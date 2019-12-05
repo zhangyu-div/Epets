@@ -50,8 +50,12 @@ export const Formbox=styled.div`
         font-size:0.16rem;
         text-align:center;
         border:none;
+        outline:none;
         margin-top:0.39rem;
     }
+    .cur{
+            background:DarkSlateBlue;
+        }
     p{
         width:100%;
         display:flex;

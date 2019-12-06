@@ -39,7 +39,6 @@ export default handleActions({
         videodetailState.series=action.payload.data.list.detial.series;
         videodetailState.lists=action.payload.data.list.detial.series.list;
         videodetailState.links=action.payload.data.list.detial.link;
-
         return videodetailState;
     },
 }, defaultState);

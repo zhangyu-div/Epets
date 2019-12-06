@@ -168,7 +168,6 @@ class Goodlist extends React.Component{
                 this.handleAsyncList();
             })
         }
-
     }
 
     componentWillUpdate(){
@@ -176,13 +175,13 @@ class Goodlist extends React.Component{
     }
     componentDidMount(){
         this.handleAsyncList();
-
+     
         this.refs.scroll.handlepullingUp(()=>{
             let {cateid}=this.props.match.params;
             let {orderby} =this.state;
             let extend_pam =this.props.location.state;
             let page=this.page;
-            this.props.goodslist(cateid,page,orderby,extend_pam);
+            this.props.goodssslist(cateid,page,orderby,extend_pam);
             this.page++;
         })
     }
